@@ -49,7 +49,7 @@ def len_of_longest_subarray3(arr, k):
     max_len = 0
     left, right = 0, 0
 
-    while right < n:
+    while right < n: 
         curr_sum += arr[right]
 
         while curr_sum > k and left < right:
