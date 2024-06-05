@@ -2,19 +2,20 @@
 
 # using Kadane's algorithm
 def max_subarray(arr):
-    max_sum = 0
+    max_sum = arr[0]
     current_sum = 0
 
     for i in range(len(arr)):
         current_sum += arr[i]
         if current_sum > max_sum:
             max_sum = current_sum
+        # making current_sum 0 if it is negative because it will not contribute to the maximum sum, it will only decrease the sum
         if current_sum < 0:
             current_sum = 0
 
     return max_sum
 
-    # max_sum = 0
+    # max_sum = -99999
     # current_sum = 0
     # for i in range(len(arr)):
     #     current_sum = max(arr[i], current_sum + arr[i])
@@ -25,7 +26,7 @@ def max_subarray(arr):
 # test cases
 # print(max_subarray([-2,1,-3,4,-1,2,1,-5,4])) # 6
 # print(max_subarray([1])) # 1
-# print(max_subarray([5,4,-1,7,8])) # 23
+print(max_subarray([-5,-4,-1,-7,-8])) # 23
 # print(max_subarray([])) # 0
 
 # if we want to return the subarray
@@ -47,10 +48,10 @@ def max_subarray_return_array(arr):
 
     return arr[start:end]
 
-print(max_subarray_return_array([-2,1,-3,4,-1,2,1,-5,4])) # 6
-print(max_subarray([1])) # 1
-print(max_subarray_return_array([5,4,-1,7,8])) # 23
-print(max_subarray_return_array([])) # 0
+# print(max_subarray_return_array([-2,1,-3,4,-1,2,1,-5,4])) # 6
+# print(max_subarray([1])) # 1
+# print(max_subarray_return_array([5,4,-1,7,8])) # 23
+# print(max_subarray_return_array([])) # 0
 
 # gfg problem Max sum in sub-arrays 
 # Given an array Arr, with indexes running from 0 to N-1, select any two indexes, i and j such that i<=j-1. From subarray Arr[i...j], find the two smallest numbers and add them, you will get score for that subarray. Your task is to return maximum score possible in the given array Arr.
