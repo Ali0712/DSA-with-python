@@ -48,3 +48,12 @@ def set_matrix_zero_extraspace(arr):
 print(set_matrix_zero([[1,1,1],[1,0,1],[1,1,1]])) # [[1,0,1],[0,0,0],[1,0,1]]
 print(set_matrix_zero([[0,1,2,0],[3,4,5,2],[1,3,1,5]])) # [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
 print(set_matrix_zero([[1,1,1],[0,1,2]])) # [[0,1,1],[0,0,0]]
+
+'''
+Explanation:
+without using extra space:
+1. First we iterate through the matrix and mark the rows and columns that are to be made zero.
+2. Then, we iterate the matrix starting from second row and second column and update the elements.
+3. Finally, we update the first row and first column if needed.
+
+'''
