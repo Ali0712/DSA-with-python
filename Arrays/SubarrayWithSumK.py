@@ -1,16 +1,15 @@
 # 560. Subarray Sum Equals K
 
 def subarray_with_sumK(arr, k):
+    pre = {0:1}
     count = 0
     sum = 0
-    d = {}
-    d[0] = 1
-    for i in range(len(arr)):
-        sum += arr[i]
-        if sum - k in d:
-            count += d[sum - k]
-        d[sum] = d.get(sum, 0) + 1
+    for i in arr:
+        sum += i
+        count += pre.get(sum - k, 0)
+        pre[sum] = pre.get(sum, 0) + 1
     return count
+
 
 
 def subarray_with_sumK_bruteforce(arr, k):
@@ -35,19 +34,10 @@ def subarray_with_sumK_prefixsum(arr, k):
     return count
 
 
-# two pointer approach
-def subarray_with_sumK_twopointer(arr, k):
-    count = 0
-    total_sum = 0
-    left = 0
-    right = 0
-    while right < len(arr):
-        total_sum += arr[right]
-        while total_sum > k:
-            total_sum -= arr[left]
-            left += 1
-        if total_sum == k:
-            count += 1
-        right += 1
-    return count
-
+# test cases
+print(subarray_with_sumK([1,1,1], 2)) # 2
+print(subarray_with_sumK([1,2,3], 3)) # 2
+print(subarray_with_sumK([1,2,3,4], 5)) # 1
+print(subarray_with_sumK([1,2,3,4], 10)) # 1
+print(subarray_with_sumK([1,2,3,4], 8)) # 0
+print(subarray_with_sumK([1,2,-3,4,2,1,4,-3,2,1], 4)) # 7
