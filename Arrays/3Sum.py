@@ -22,8 +22,7 @@ def three_sum(arr):
                 while left < right and arr[left] == arr[left-1]:
                     left += 1
                 while left < right and arr[right] == arr[right+1]:
-                    right -= 1
-                
+                    right -= 1              
     return ans
 
 def three_sum1(arr):
@@ -40,7 +39,6 @@ def three_sum1(arr):
         hashset.clear()
     ans = list(list(i) for i in ans)
     return ans
-
 
 # test cases
 print(three_sum([-1,0,1,2,-1,-4,4,3,2,0,-3])) # [[-1, -1, 2], [-1, 0, 1]]
